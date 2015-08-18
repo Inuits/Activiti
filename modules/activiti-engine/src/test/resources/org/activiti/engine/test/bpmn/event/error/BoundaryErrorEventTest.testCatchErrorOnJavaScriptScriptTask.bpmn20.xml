@@ -23,7 +23,7 @@
 
             } else {
 
-              var Context = Packages.sun.org.mozilla.javascript.internal.Context;
+              var Context = Packages.sun.org.mozilla.javascript.Context;
               Context.throwAsScriptRuntimeEx(new org.activiti.engine.delegate.BpmnError("errorOne"));
 
             }
