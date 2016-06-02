@@ -19,11 +19,17 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupp
 import org.springframework.web.servlet.i18n.LocaleChangeInterceptor;
 import org.springframework.web.servlet.i18n.SessionLocaleResolver;
 import org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping;
+import springfox.documentation.service.ApiInfo;
+import springfox.documentation.service.Contact;
+import springfox.documentation.spi.DocumentationType;
+import springfox.documentation.spring.web.plugins.Docket;
+import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 @Configuration
 @ComponentScan({"org.activiti.rest.exception", "org.activiti.rest.service.api"})
+@EnableSwagger2
 @EnableAsync
 public class DispatcherServletConfiguration extends WebMvcConfigurationSupport {
 
@@ -34,6 +40,12 @@ public class DispatcherServletConfiguration extends WebMvcConfigurationSupport {
   
   @Autowired
   private Environment environment;
+
+  @Bean
+  public Docket customImplementation(){
+    ApiInfo info = new ApiInfo("","","","",new Contact(null,null,null),"","");
+    return new Docket(DocumentationType.SWAGGER_2).apiInfo(info);
+  }
 
   @Bean
   public SessionLocaleResolver localeResolver() {

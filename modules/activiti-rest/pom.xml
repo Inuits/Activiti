@@ -222,6 +222,13 @@
       <groupId>org.springframework.security</groupId>
       <artifactId>spring-security-web</artifactId>
     </dependency>
+
+    <!-- Swagger dependencies -->
+    <dependency>
+      <groupId>io.swagger</groupId>
+      <artifactId>swagger-annotations</artifactId>
+      <version>1.5.9</version>
+    </dependency>
     
     <dependency>
       <groupId>org.eclipse.jetty.orbit</groupId>
